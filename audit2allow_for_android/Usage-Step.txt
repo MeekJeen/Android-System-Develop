@@ -5,6 +5,7 @@ audit2allow位置:external/selinux/policycoreutils/audit2allow
 
 1.安装需要的工具
 # sudo aptitude install python-sepolgen
+//从自己的设备pull出policy
 # adb pull /sys/fs/selinux/policy
 
 2.生成sepolicy规则
