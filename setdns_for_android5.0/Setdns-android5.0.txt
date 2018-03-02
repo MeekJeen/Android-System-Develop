@@ -1,0 +1,17 @@
+	                                                        Android5.0以上设置eth0的DNS
+
+查看system/netd/server/CommandListener.cpp中int CommandListener::ResolverCmd::runCommand(SocketClient *cli, int argc, char **margv)函数命令.
+//"resolver setnetdns <netId> <domains> <dns1> <dns2> ..."
+
+1.setdns.sh
+echo 1 > /proc/sys/net/ipv4/ip_forward
+ifconfig eth0 192.168.1.15 netmask 255.255.255.0
+route add default gw 192.168.1.11 dev eth0
+while [ 1 ]
+      sleep 1
+do
+    if [ "up" = "$(cat /sys/class/net/eth0/operstate)" ];then
+	ndc resolver setnetdns eth0 114.114.114.114 114.114.115.115
+	break;
+    fi
+done
