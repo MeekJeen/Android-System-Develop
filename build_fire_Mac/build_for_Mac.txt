@@ -1,0 +1,11 @@
+Mac build firefly
+1.Set env
+# go env
+# export GOROOT=/usr/local/Cellar/go/1.8.3/libexec
+# export GOPATH=/usr/local/Cellar/go
+
+2.Compile
+# cd fire
+# sudo cp -rf ~/fire/src/ /usr/local/Cellar/go/1.8.3/libexec
+# cd ~/fire/firefly-proxy/client
+# make darwin
